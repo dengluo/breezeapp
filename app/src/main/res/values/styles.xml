@@ -1,0 +1,89 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/blue_1</item>
+        <item name="colorPrimaryDark">@color/black_1</item>
+        <item name="colorAccent">@color/blue_1</item>
+        <item name="colorControlActivated">@color/blue_3</item>
+        <item name="colorSwitchThumbNormal">@color/black_2</item>
+    </style>
+
+    <style name="launch_app_theme" parent="AppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowBackground">@color/black_1</item>
+    </style>
+
+    <style name="Widget.Design.BottomNavigationView" parent="">
+        <item name="elevation">@dimen/design_bottom_navigation_elevation</item>
+        <item name="itemBackground">?selectableItemBackgroundBorderless</item>
+    </style>
+    <style name="Widget.Design.BottomSheet.Modal" parent="@android:style/Widget">
+        <item name="android:background">?android:colorBackground</item>
+        <item name="behavior_hideable">true</item>
+        <item name="behavior_peekHeight">auto</item>
+        <item name="behavior_skipCollapsed">false</item>
+    </style>
+    <style name="Widget.Design.CollapsingToolbar" parent="@android:style/Widget">
+        <item name="expandedTitleMargin">32.0dip</item>
+        <item name="statusBarScrim">?colorPrimaryDark</item>
+    </style>
+    <style name="Widget.Design.CoordinatorLayout" parent="@android:style/Widget">
+        <item name="statusBarBackground">?colorPrimaryDark</item>
+    </style>
+    <style name="Widget.Design.FloatingActionButton" parent="@android:style/Widget">
+        <item name="android:background">@drawable/design_fab_background</item>
+        <item name="backgroundTint">?colorAccent</item>
+        <item name="borderWidth">@dimen/design_fab_border_width</item>
+        <item name="elevation">@dimen/design_fab_elevation</item>
+        <item name="fabSize">auto</item>
+        <item name="pressedTranslationZ">@dimen/design_fab_translation_z_pressed</item>
+        <item name="rippleColor">?colorControlHighlight</item>
+    </style>
+    <style name="Widget.Design.NavigationView" parent="">
+        <item name="android:background">?android:windowBackground</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:maxWidth">@dimen/design_navigation_max_width</item>
+        <item name="elevation">@dimen/design_navigation_elevation</item>
+    </style>
+    <style name="Widget.Design.ScrimInsetsFrameLayout" parent="">
+        <item name="insetForeground">#44000000</item>
+    </style>
+    <style name="Widget.Design.Snackbar" parent="@android:style/Widget">
+        <item name="android:background">@drawable/design_snackbar_background</item>
+        <item name="android:paddingLeft">@dimen/design_snackbar_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/design_snackbar_padding_horizontal</item>
+        <item name="android:maxWidth">@dimen/design_snackbar_max_width</item>
+        <item name="android:minWidth">@dimen/design_snackbar_min_width</item>
+        <item name="elevation">@dimen/design_snackbar_elevation</item>
+        <item name="maxActionInlineWidth">@dimen/design_snackbar_action_inline_max_width</item>
+    </style>
+    <style name="Widget.Design.TabLayout" parent="@style/Base.Widget.Design.TabLayout">
+        <item name="tabGravity">fill</item>
+        <item name="tabMode">fixed</item>
+    </style>
+    <style name="Widget.Design.TextInputLayout" parent="@android:style/Widget">
+        <item name="counterOverflowTextAppearance">@style/TextAppearance.Design.Counter.Overflow</item>
+        <item name="counterTextAppearance">@style/TextAppearance.Design.Counter</item>
+        <item name="errorTextAppearance">@style/TextAppearance.Design.Error</item>
+        <item name="hintTextAppearance">@style/TextAppearance.Design.Hint</item>
+        <item name="passwordToggleContentDescription">@string/password_toggle_content_description</item>
+        <item name="passwordToggleDrawable">@drawable/design_password_eye</item>
+        <item name="passwordToggleTint">@color/design_tint_password_toggle</item>
+    </style>
+    <style name="button_text_style" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">#fff2f2f2</item>
+    </style>
+    <style name="rate_number_text_style" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">#fff2f2f2</item>
+    </style>
+    <style name="toolbar_title_style" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">#fff2f2f2</item>
+    </style>
+
+</resources>

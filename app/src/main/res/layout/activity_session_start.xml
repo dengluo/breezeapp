@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:n1="http://schemas.android.com/apk/res/android"
+    n1:layout_width="fill_parent"
+    n1:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/tools"
+    n1:background="@android:color/black"
+    n1:orientation="vertical">
+
+    <LinearLayout
+        n1:layout_width="fill_parent"
+        n1:layout_height="wrap_content"
+        n1:layout_centerInParent="true"
+        n1:orientation="vertical">
+
+        <TextView
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:layout_marginBottom="5.0dip"
+            n1:gravity="center"
+            n1:text="@string/warming"
+            n1:textColor="#ffffffff"
+            n1:textSize="20.0sp" />
+
+        <FrameLayout
+            n1:layout_width="fill_parent"
+            n1:layout_height="50.0dip"
+            n1:layout_marginLeft="20.0dip"
+            n1:layout_marginRight="20.0dip"
+            n1:background="@drawable/blue_border">
+
+            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar xmlns:n2="http://schemas.android.com/apk/res-auto"
+                n1:id="@+id/warming_progress_bar"
+                n1:layout_width="fill_parent"
+                n1:layout_height="fill_parent"
+                n1:layout_gravity="center"
+                app:rcMax="10"
+                app:rcProgress="5"
+                app:rcSecondaryProgress="7.5"
+                n1:layout_margin="5.0dip"
+                n2:rcRadius="3.0dip" />
+
+            <TextView
+                n1:id="@+id/warning_progress_value"
+                n1:layout_width="wrap_content"
+                n1:layout_height="wrap_content"
+                n1:layout_gravity="center"
+                n1:layout_margin="10.0dip"
+                n1:textColor="#ffffffff"
+                n1:textSize="20.0sp"
+                n1:visibility="gone" />
+        </FrameLayout>
+
+        <TextView
+            n1:id="@+id/warming_activity_tv_temp_value"
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:gravity="center"
+            n1:padding="10.0dip"
+            n1:text="Temperature value : checking... "
+            n1:textColor="#ffffffff"
+            n1:visibility="gone" />
+    </LinearLayout>
+</RelativeLayout>

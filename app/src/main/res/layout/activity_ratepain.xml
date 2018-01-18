@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:n1="http://schemas.android.com/apk/res/android"
+    n1:layout_width="fill_parent"
+    n1:layout_height="fill_parent"
+    n1:background="@android:color/black"
+    n1:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        n1:layout_width="fill_parent"
+        n1:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar xmlns:n2="http://schemas.android.com/apk/res-auto"
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n2:contentInsetStart="0.0dip">
+
+            <TextView
+                style="@style/toolbar_title_style"
+                n1:layout_width="fill_parent"
+                n1:layout_height="wrap_content"
+                n1:gravity="center"
+                n1:text="@string/rate_your_pain"
+                n1:textSize="22.0sp" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        n1:layout_width="fill_parent"
+        n1:layout_height="fill_parent">
+
+        <LinearLayout
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:layout_centerInParent="true"
+            n1:orientation="vertical">
+
+            <LinearLayout
+                n1:layout_width="fill_parent"
+                n1:layout_height="wrap_content"
+                n1:layout_marginLeft="55.0dip"
+                n1:layout_marginRight="55.0dip"
+                n1:orientation="horizontal">
+
+                <LinearLayout
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_weight="1.0"
+                    n1:gravity="center">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        n1:id="@+id/rate1_tv"
+                        style="@style/rate_number_text_style"
+                        n1:layout_width="wrap_content"
+                        n1:layout_height="wrap_content"
+                        n1:background="@drawable/rate_0_selector"
+                        n1:gravity="center"
+                        n1:text="0" />
+                </LinearLayout>
+
+                <LinearLayout
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_weight="1.0"
+                    n1:gravity="center">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        n1:id="@+id/rate0_tv"
+                        style="@style/rate_number_text_style"
+                        n1:layout_width="wrap_content"
+                        n1:layout_height="wrap_content"
+                        n1:background="@drawable/rate_1_selector"
+                        n1:gravity="center"
+                        n1:text="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_weight="1.0"
+                    n1:gravity="center">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        n1:id="@+id/rate2_tv"
+                        style="@style/rate_number_text_style"
+                        n1:layout_width="wrap_content"
+                        n1:layout_height="wrap_content"
+                        n1:background="@drawable/rate_2_selector"
+                        n1:gravity="center"
+                        n1:text="2" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                n1:layout_width="fill_parent"
+                n1:layout_height="wrap_content"
+                n1:layout_marginLeft="30.0dip"
+                n1:layout_marginRight="30.0dip"
+                n1:layout_marginTop="15.0dip"
+                n1:orientation="horizontal">
+
+                <LinearLayout
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_weight="1.0"
+                    n1:gravity="center">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        n1:id="@+id/rate3_tv"
+                        style="@style/rate_number_text_style"
+                        n1:layout_width="wrap_content"
+                        n1:layout_height="wrap_content"
+                        n1:background="@drawable/rate_3_selector"
+                        n1:gravity="center"
+                        n1:text="3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_weight="1.0"
+                    n1:gravity="center">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        n1:id="@+id/rate4_tv"
+                        style="@style/rate_number_text_style"
+                        n1:layout_width="wrap_content"
+                        n1:layout_height="wrap_content"
+                        n1:background="@drawable/rate_4_selector"
+                        n1:gravity="center"
+                        n1:text="4" />
+                </LinearLayout>
+
+                <LinearLayout
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_weight="1.0"
+                    n1:gravity="center">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        n1:id="@+id/rate5_tv"
+                        style="@style/rate_number_text_style"
+                        n1:layout_width="wrap_content"
+                        n1:layout_height="fill_parent"
+                        n1:background="@drawable/rate_5_selector"
+                        n1:gravity="center"
+                        n1:text="5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_weight="1.0"
+                    n1:gravity="center">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        n1:id="@+id/rate6_tv"
+                        style="@style/rate_number_text_style"
+                        n1:layout_width="wrap_content"
+                        n1:layout_height="wrap_content"
+                        n1:background="@drawable/rate_6_selector"
+                        n1:gravity="center"
+                        n1:text="6" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                n1:layout_width="fill_parent"
+                n1:layout_height="wrap_content"
+                n1:layout_marginLeft="30.0dip"
+                n1:layout_marginRight="30.0dip"
+                n1:layout_marginTop="15.0dip"
+                n1:orientation="horizontal">
+
+                <LinearLayout
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_weight="1.0"
+                    n1:gravity="center">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        n1:id="@+id/rate7_tv"
+                        style="@style/rate_number_text_style"
+                        n1:layout_width="wrap_content"
+                        n1:layout_height="wrap_content"
+                        n1:background="@drawable/rate_7_selector"
+                        n1:gravity="center"
+                        n1:text="7" />
+                </LinearLayout>
+
+                <LinearLayout
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_weight="1.0"
+                    n1:gravity="center">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        n1:id="@+id/rate8_tv"
+                        style="@style/rate_number_text_style"
+                        n1:layout_width="wrap_content"
+                        n1:layout_height="wrap_content"
+                        n1:background="@drawable/rate_8_selector"
+                        n1:gravity="center"
+                        n1:text="8" />
+                </LinearLayout>
+
+                <LinearLayout
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_weight="1.0"
+                    n1:gravity="center">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        n1:id="@+id/rate9_tv"
+                        style="@style/rate_number_text_style"
+                        n1:layout_width="wrap_content"
+                        n1:layout_height="wrap_content"
+                        n1:background="@drawable/rate_9_selector"
+                        n1:gravity="center"
+                        n1:text="9" />
+                </LinearLayout>
+
+                <LinearLayout
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_weight="1.0"
+                    n1:gravity="center">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        n1:id="@+id/rate10_tv"
+                        style="@style/rate_number_text_style"
+                        n1:layout_width="wrap_content"
+                        n1:layout_height="fill_parent"
+                        n1:background="@drawable/rate_10_selector"
+                        n1:gravity="center"
+                        n1:text="10" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            n1:id="@+id/rate_pain_activity_iv_ok"
+            n1:layout_width="wrap_content"
+            n1:layout_height="wrap_content"
+            n1:layout_alignParentBottom="true"
+            n1:layout_centerHorizontal="true"
+            n1:layout_gravity="center"
+            n1:src="@drawable/ok_button" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:n1="http://schemas.android.com/apk/res/android"
+    n1:layout_width="fill_parent"
+    n1:layout_height="fill_parent"
+    n1:background="@android:color/black"
+    n1:orientation="vertical">
+
+    <FrameLayout
+        n1:id="@+id/progress_layout"
+        n1:layout_width="120.0dip"
+        n1:layout_height="120.0dip"
+        n1:layout_centerInParent="true">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:n2="http://schemas.android.com/apk/res-auto"
+            n1:layout_width="fill_parent"
+            n1:layout_height="fill_parent"
+            n1:layout_margin="9.0dip"
+            n1:src="#ff0059b3"
+            n2:civ_border_color="#fff2f2f2"
+            n2:civ_border_overlay="true"
+            n2:civ_border_width="1.0dip" />
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:n3="http://schemas.android.com/apk/res-auto"
+            n1:id="@+id/smiley"
+            n1:layout_width="fill_parent"
+            n1:layout_height="fill_parent"
+            n1:layout_margin="9.0dip"
+            n1:src="#ff00609b"
+            n3:civ_border_color="#fff2f2f2"
+            n3:civ_border_overlay="true"
+            n3:civ_border_width="1.0dip" />
+
+        <com.timqi.sectorprogressview.ColorfulRingProgressView xmlns:n4="http://schemas.android.com/apk/res-auto"
+            n1:id="@+id/session_progress_view"
+            fontPath="fonts/GOTHAMROUNDED-BOOK.ttf"
+            n1:layout_width="fill_parent"
+            n1:layout_height="fill_parent"
+            n4:bgColor="@android:color/black"
+            n4:fgColorEnd="#ff0099ff"
+            n4:fgColorStart="#ff66ff33"
+            n4:percent="100.0"
+            n4:strokeWidth="4.0dip" />
+
+        <TextView
+            n1:id="@+id/session_tv_time"
+            n1:layout_width="wrap_content"
+            n1:layout_height="wrap_content"
+            n1:layout_gravity="center"
+            n1:textColor="#ffffffff"
+            n1:textSize="20.0sp" />
+    </FrameLayout>
+
+    <TextView
+        n1:id="@+id/session_progress_status"
+        n1:layout_width="fill_parent"
+        n1:layout_height="wrap_content"
+        n1:layout_below="@id/progress_layout"
+        n1:layout_marginTop="10.0dip"
+        n1:gravity="center"
+        n1:text="@string/inhale_deeply_exhale_slowly"
+        n1:textColor="#ffffffff"
+        n1:textSize="20.0sp" />
+</RelativeLayout>

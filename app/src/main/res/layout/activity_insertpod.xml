@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:n1="http://schemas.android.com/apk/res/android"
+    n1:layout_width="fill_parent"
+    n1:layout_height="fill_parent"
+    n1:background="@android:color/black"
+    n1:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        n1:layout_width="fill_parent"
+        n1:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/toolbar_title_style"
+                fontPath="fonts/GOTHAM-LIGHT.ttf"
+                n1:layout_width="fill_parent"
+                n1:layout_height="wrap_content"
+                n1:gravity="center"
+                n1:text="@string/insert_pod"
+                n1:textSize="22.0sp" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout xmlns:n2="http://schemas.android.com/apk/res-auto"
+        n1:layout_width="fill_parent"
+        n1:layout_height="fill_parent"
+        n1:orientation="vertical"
+        n2:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            n1:layout_width="wrap_content"
+            n1:layout_height="wrap_content"
+            n1:layout_centerInParent="true"
+            n1:orientation="vertical">
+
+            <ImageView
+                n1:id="@+id/download_image"
+                n1:layout_width="100.0dip"
+                n1:layout_height="100.0dip"
+                n1:layout_gravity="center"
+                n1:src="@drawable/download" />
+
+            <ImageView
+                n1:layout_width="wrap_content"
+                n1:layout_height="wrap_content"
+                n1:layout_marginTop="5.0dip"
+                n1:src="@drawable/download_image_shadow" />
+        </LinearLayout>
+
+        <ImageView
+            n1:id="@+id/insertpod_activity_iv_ok"
+            n1:layout_width="wrap_content"
+            n1:layout_height="wrap_content"
+            n1:layout_alignParentBottom="true"
+            n1:layout_centerHorizontal="true"
+            n1:src="@drawable/ok_button" />
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:n1="http://schemas.android.com/apk/res/android"
+    n1:layout_width="fill_parent"
+    n1:layout_height="fill_parent"
+    n1:background="@android:color/black"
+    n1:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        n1:layout_width="fill_parent"
+        n1:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content">
+
+            <RelativeLayout
+                n1:layout_width="fill_parent"
+                n1:layout_height="fill_parent"
+                n1:gravity="center">
+
+                <android.support.v7.widget.AppCompatTextView
+                    style="@style/toolbar_title_style"
+                    fontPath="fonts/GOTHAM-LIGHT.ttf"
+                    n1:layout_width="fill_parent"
+                    n1:layout_height="wrap_content"
+                    n1:layout_centerVertical="true"
+                    n1:gravity="center"
+                    n1:text="@string/select_pod"
+                    n1:textSize="22.0sp" />
+
+                <ImageView
+                    n1:id="@+id/setting_iv"
+                    n1:layout_width="wrap_content"
+                    n1:layout_height="wrap_content"
+                    n1:layout_alignParentRight="true"
+                    n1:layout_centerVertical="true"
+                    n1:padding="10.0dip"
+                    n1:src="@drawable/settings_white_24dp" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        n1:layout_width="fill_parent"
+        n1:layout_height="wrap_content"
+        n1:layout_weight="1.0"
+        n1:gravity="center"
+        n1:orientation="horizontal">
+
+        <android.support.v4.view.ViewPager
+            n1:id="@+id/view_pager"
+            n1:layout_width="wrap_content"
+            n1:layout_height="wrap_content"
+            n1:layout_centerHorizontal="true"
+            n1:layout_centerVertical="true"/>
+
+        <ImageView
+            n1:id="@+id/left_arrow"
+            n1:layout_width="wrap_content"
+            n1:layout_height="wrap_content"
+            n1:layout_alignParentLeft="true"
+            n1:layout_centerVertical="true"
+            n1:padding="20.0dip"
+            n1:src="@drawable/left_arrow" />
+
+        <!--<ImageView-->
+            <!--n1:id="@+id/iv_product"-->
+            <!--n1:layout_width="wrap_content"-->
+            <!--n1:layout_height="wrap_content"-->
+            <!--n1:layout_centerHorizontal="true"-->
+            <!--n1:layout_centerVertical="true"-->
+            <!--n1:padding="20.0dip"-->
+            <!--n1:src="@drawable/pod_yellow" />-->
+
+        <ImageView
+            n1:id="@+id/right_arrow"
+            n1:layout_width="wrap_content"
+            n1:layout_height="wrap_content"
+            n1:layout_alignParentRight="true"
+            n1:layout_centerVertical="true"
+            n1:padding="20.0dip"
+            n1:src="@drawable/right_arrow" />
+    </RelativeLayout>
+
+    <ImageView
+        n1:id="@+id/select_pod_bt_ok"
+        n1:layout_width="wrap_content"
+        n1:layout_height="wrap_content"
+        n1:layout_gravity="center"
+        n1:src="@drawable/ok_button" />
+
+    <Button
+        n1:id="@+id/send_log"
+        n1:layout_width="wrap_content"
+        n1:layout_height="wrap_content"
+        n1:layout_gravity="end"
+        n1:minHeight="0.0dip"
+        n1:minWidth="0.0dip"
+        n1:text="send logs"
+        n1:visibility="gone" />
+
+    <ScrollView
+        n1:id="@+id/select_pod_scroll_log_view"
+        n1:layout_width="fill_parent"
+        n1:layout_height="fill_parent"
+        n1:layout_weight="1.0"
+        n1:background="#ffffffff"
+        n1:fillViewport="true"
+        n1:visibility="gone">
+
+        <LinearLayout
+            n1:layout_width="fill_parent"
+            n1:layout_height="fill_parent"
+            n1:orientation="vertical">
+
+            <TextView
+                n1:id="@+id/select_pod_charge_log_tv"
+                n1:layout_width="fill_parent"
+                n1:layout_height="wrap_content"
+                n1:textColor="#ff000000" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

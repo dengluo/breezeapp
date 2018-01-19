@@ -54,5 +54,6 @@
         <activity android:name=".activity.SessionStartActivity2"/>
         <activity android:name=".activity.SessionStartActivity3"/>
         <activity android:name=".activity.BreezeCompleteActivity"/>
+        <activity android:name=".activity.BindDeviceActivity"/>
     </application>
 </manifest>

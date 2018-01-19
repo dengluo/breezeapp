@@ -64,7 +64,7 @@ public class CardPagerAdapter extends PagerAdapter {
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void bind(CardItem item, View view) {
-        ImageView pod_image = view.findViewById(R.id.pod_image);
+        ImageView pod_image = (ImageView) view.findViewById(R.id.pod_image);
         Log.e("item.getText()===",item.getText()+"");
         if (item.getText() == 1){
             pod_image.setBackgroundResource(R.drawable.pod_yellow);

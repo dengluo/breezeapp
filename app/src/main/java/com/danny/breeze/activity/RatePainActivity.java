@@ -1,15 +1,28 @@
 package com.danny.breeze.activity;
 
+import android.annotation.SuppressLint;
+import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bestmafen.easeblelib.util.L;
+import com.bestmafen.smablelib.component.SimpleSmaCallback;
+import com.bestmafen.smablelib.component.SmaManager;
+import com.danny.breeze.BuildConfig;
 import com.danny.breeze.R;
 import com.danny.breeze.base.BaseActivity;
+import com.danny.breeze.interfaces.DialogCallback;
+import com.danny.breeze.util.DialogUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -43,7 +56,12 @@ public class RatePainActivity extends BaseActivity {
     AppCompatTextView rate9_tv;
     @BindView(R.id.rate10_tv)
     AppCompatTextView rate10_tv;
+    @BindView(R.id.tv_ratepain_search)
+    TextView tv_ratepain_search;
 
+    private SmaManager mSmaManager;
+    public static Handler mHandler;
+    private Handler mDsHandler = new Handler();//定时发送handler
     Boolean isChecked = false;
     String str;
 
@@ -68,18 +86,114 @@ public class RatePainActivity extends BaseActivity {
 
     }
 
+    Runnable update_thread = new Runnable() {
+        public void run() {
+            Log.e("run==","==runrunrun");
+            mSmaManager.write(SmaManager.SET.INTO_BREEZE,String.valueOf(6));
+//            if (mSmaManager.getNameAndAddress()[0] == null && mSmaManager.getNameAndAddress()[0] == "") {
+//                bt_ratepain_search.setText("绑定设备");
+//            }else {
+//                bt_ratepain_search.setText(mSmaManager.getNameAndAddress()[0]);
+//            }
+            mDsHandler.postDelayed(this, 5000);
+        }
+    };
+
     @Override
     protected void initView() {
+//        if (mSmaManager.getNameAndAddress()[0] == null && mSmaManager.getNameAndAddress()[0] == "") {
+//            tv_ratepain_search.setText("绑定设备");
+//        }else {
+//            tv_ratepain_search.setText(mSmaManager.getNameAndAddress()[0]);
+//
+//            mDsHandler.post(update_thread);
+//        }
+    }
 
+    @SuppressLint("HandlerLeak")
+    @Override
+    protected void init(Bundle savedInstanceState) {
+        SharedPreferences sp = this.getSharedPreferences("SessionStart", MODE_PRIVATE);
+        str = sp.getString("SessionStartO", "");
+
+        mSmaManager = SmaManager.getInstance().init(this).addSmaCallback(new SimpleSmaCallback() {
+
+            @Override
+            public void onConnected(BluetoothDevice device, boolean isConnected) {
+                if (BuildConfig.DEBUG) {
+                    append("  ->  isConnected " + isConnected);
+                }
+            }
+
+            @Override
+            public void onWrite(byte[] data) {
+                if (BuildConfig.DEBUG) {
+                    append("  ->  onWrite", data);
+                }
+            }
+
+            @Override
+            public void onRead(byte[] data) {
+                if (BuildConfig.DEBUG) {
+                    append("  ->  onRead", data);
+                }
+            }
+        });
+        mSmaManager.connect(true);
+
+        mHandler = new Handler() {
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case 19:
+                        tv_ratepain_search.setText(mSmaManager.getNameAndAddress()[0]);
+                        break;
+                }
+            }
+        };
     }
 
     @Override
-    protected void init(Bundle savedInstanceState) {
-        SharedPreferences sp =this.getSharedPreferences("SessionStart", MODE_PRIVATE);
-        str = sp.getString("SessionStartO", "");
+    protected void onResume() {
+        super.onResume();
     }
 
-    public void clearView(){
+    @Override
+    protected void onDestroy() {
+//        mSmaManager.exit();
+        mDsHandler.removeCallbacks(update_thread);
+        super.onDestroy();
+    }
+
+    /**
+     * @param type 0写 1读
+     * @param data content
+     */
+    private synchronized void append(final String type, final byte[] data) {
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+//                mTvDebug.append(getTimeStr() + "  " + type + "\n");
+//                mTvDebug.append(EaseUtils.byteArray2HexString(data));
+//                mTvDebug.append("  " + getValue(data));
+//                mTvDebug.append("\n\n");
+            }
+        });
+    }
+
+    private synchronized void append(final String value) {
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+//                mTvDebug.append(getTimeStr() + "\n");
+//                mTvDebug.append("  " + value);
+//                mTvDebug.append("\n\n");
+            }
+        });
+    }
+
+    public void clearView() {
         isChecked = true;
         rate1_tv.setBackgroundResource(R.drawable.rate_pain_0);
         rate0_tv.setBackgroundResource(R.drawable.rate_pain_1);
@@ -95,27 +209,37 @@ public class RatePainActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.rate_pain_activity_iv_ok,R.id.rate1_tv,R.id.rate0_tv,R.id.rate2_tv,R.id.rate3_tv,R.id.rate4_tv,R.id.rate5_tv,R.id.rate6_tv,R.id.rate7_tv,R.id.rate8_tv,R.id.rate9_tv,R.id.rate10_tv})
+    @OnClick({R.id.rate_pain_activity_iv_ok, R.id.rate1_tv, R.id.rate0_tv, R.id.rate2_tv, R.id.rate3_tv,
+            R.id.rate4_tv, R.id.rate5_tv, R.id.rate6_tv, R.id.rate7_tv, R.id.rate8_tv, R.id.rate9_tv,
+            R.id.rate10_tv,R.id.tv_ratepain_search})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rate_pain_activity_iv_ok:
-                Log.e("str===",str+"");
-                if(!isChecked){
-                    Intent intent = new Intent(this,PleaseRatePainActivity.class);
-                    startActivity(intent);
-                    finish();
+                Log.e("str===", str + "");
+                if (tv_ratepain_search.getText().toString().equals("绑定设备")) {
+                    tv_ratepain_search.setText("绑定设备");
+                    Toast.makeText(mContext, "请先绑定设备", Toast.LENGTH_SHORT).show();
                 }else{
-                    if (str.equals("")){
-                        Intent intent = new Intent(this,SessionStartActivity.class);
+                    tv_ratepain_search.setText(mSmaManager.getNameAndAddress()[0]);
+                    if (!isChecked) {
+                        Intent intent = new Intent(this, PleaseRatePainActivity.class);
                         startActivity(intent);
                         finish();
-                    }else{
-                        Intent intent = new Intent(this,BreezeCompleteActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
+                    } else {
+                        if (str.equals("")) {
+                            mSmaManager.write(SmaManager.SET.INTO_BREEZE,String.valueOf(6));
+                            Intent intent = new Intent(this, SessionStartActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Intent intent = new Intent(this, BreezeCompleteActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
 
+                    }
                 }
+
 
                 break;
             case R.id.rate1_tv:
@@ -161,6 +285,23 @@ public class RatePainActivity extends BaseActivity {
             case R.id.rate10_tv:
                 clearView();
                 rate10_tv.setBackgroundResource(R.drawable.rate_pain_10_fill);
+                break;
+            case R.id.tv_ratepain_search:
+                if(tv_ratepain_search.getText().toString().equals("绑定设备")){
+                    startActivity(new Intent(RatePainActivity.this, BindDeviceActivity.class));
+                }else{
+                    DialogUtil.defaultDialog(mContext, getString(R.string.confirm_unbind_device), null, null, new
+                            DialogCallback() {
+
+                                @Override
+                                public void execute(Object dialog, Object content) {
+                                    //确认解绑
+                                    SmaManager.getInstance().unbind();
+                                    tv_ratepain_search.setText("绑定设备");
+                                }
+                            });
+                }
+
                 break;
         }
     }

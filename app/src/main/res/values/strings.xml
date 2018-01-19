@@ -93,4 +93,19 @@
     <string name="woops_connection_is_not_working">"Whoops
  The Connection is not Working yet"</string>
     <string name="you_are_not_connected_to_breeze_app">"You're not connected to the Breeze App on your phone"</string>
+    <string name="and" translatable="false"><![CDATA[&]]></string>
+    <string name="selected_device">选择设备</string>
+    <string name="search">搜寻</string>
+    <string name="loading">正在加载…</string>
+    <string name="please_enable_the_bluetooth">请打开蓝牙</string>
+    <string name="device_not_connected">请先连接设备</string>
+    <string name="already_bind">已经绑定了设备</string>
+    <string name="searching">正在搜索…</string>
+    <string name="search_again">重试</string>
+    <string name="confirm_unbind_device">确认解绑当前设备？</string>
+    <string name="connect_device">连接设备</string>
+    <string name="scan">扫描</string>
+    <string name="plz_input_email">请输入邮箱</string>
+    <string name="reset_password">重置密码</string>
+    <string name="confirm">确认</string>
 </resources>

@@ -71,6 +71,7 @@ public class SmaManager {
         public static final byte VIBRATION_DISABLED = 0x27;
         public static final byte VIBRATION_ENABLED  = 0x28;
         public static final byte INTO_OTA           = 0x5A;
+        public static final byte INTO_BREEZE           = 0x3B;
     }
 
     public static final class BACK {

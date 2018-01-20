@@ -52,7 +52,7 @@ public class PleaseRatePainActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.please_rate_pain_iv_ok:
-                Intent intent = new Intent(this,RatePainActivity.class);
+                Intent intent = new Intent(this,RatePainActivity.class).putExtra("devicename","have");
                 startActivity(intent);
                 finish();
                 break;

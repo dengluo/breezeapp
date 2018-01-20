@@ -39,7 +39,7 @@ public class SessionStartActivity2 extends BaseActivity {
     }
 
     private void startActivity() {
-        mSmaManager.write(SmaManager.SET.INTO_BREEZE);
+        mSmaManager.write(SmaManager.SET.INTO_BREEZE,String.valueOf(6));
         startActivity(new Intent(this, SessionStartActivity3.class));
         this.finish();
     }
@@ -58,73 +58,9 @@ public class SessionStartActivity2 extends BaseActivity {
     protected void initView() {
     }
 
-    /**
-     * @param type 0写 1读
-     * @param data content
-     */
-    private synchronized void append(final String type, final byte[] data) {
-        runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-//                mTvDebug.append(getTimeStr() + "  " + type + "\n");
-//                mTvDebug.append(EaseUtils.byteArray2HexString(data));
-//                mTvDebug.append("  " + getValue(data));
-//                mTvDebug.append("\n\n");
-            }
-        });
-    }
-
-    private synchronized void append(final String value) {
-        runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-//                mTvDebug.append(getTimeStr() + "\n");
-//                mTvDebug.append("  " + value);
-//                mTvDebug.append("\n\n");
-            }
-        });
-    }
-
-
     @Override
     protected void init(Bundle savedInstanceState) {
-        mSmaManager = SmaManager.getInstance().init(this).addSmaCallback(new SimpleSmaCallback() {
-
-            @Override
-            public void onConnected(BluetoothDevice device, boolean isConnected) {
-                if (BuildConfig.DEBUG) {
-                    append("  ->  isConnected " + isConnected);
-                }
-            }
-
-            @Override
-            public void onWrite(byte[] data) {
-                if (BuildConfig.DEBUG) {
-                    append("  ->  onWrite", data);
-                }
-            }
-
-            @Override
-            public void onRead(byte[] data) {
-                if (BuildConfig.DEBUG) {
-                    append("  ->  onRead", data);
-                }
-            }
-        });
-        mSmaManager.connect(true);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onDestroy() {
-        mSmaManager.exit();
-        super.onDestroy();
+        mSmaManager = SmaManager.getInstance();
     }
 
 }

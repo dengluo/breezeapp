@@ -18,15 +18,23 @@ import com.danny.breeze.base.BaseActivity;
  */
 
 public class SessionStartActivity3 extends BaseActivity {
+    private static final String Tag = "SessionStartActivity3";
     private SmaManager mSmaManager;
-    private Handler mDsHandler = new Handler();//定时发送handler
-    Runnable update_thread = new Runnable() {
+    private Handler mDsHandlerSession3 = new Handler();//定时发送handler
+    Runnable update_thread_session3 = new Runnable() {
         public void run() {
-            Log.e("run==","==runrunrun");
+            Log.e("run==",Tag+"=="+mSmaManager);
             mSmaManager.write(SmaManager.SET.INTO_BREEZE,String.valueOf(6));
-            mDsHandler.postDelayed(this, 5000);
+            mDsHandlerSession3.postDelayed(this, 5000);
+
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        mDsHandlerSession3.removeCallbacks(update_thread_session3);
+        super.onDestroy();
+    }
 
     @Override
     protected int getLayoutRes() {
@@ -50,7 +58,7 @@ public class SessionStartActivity3 extends BaseActivity {
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("SessionStartO", "come");
         editor.commit();
-        startActivity(new Intent(this, RatePainActivity.class));
+        startActivity(new Intent(this, RatePainActivity.class).putExtra("devicename","have"));
         this.finish();
     }
 
@@ -66,77 +74,17 @@ public class SessionStartActivity3 extends BaseActivity {
 
     @Override
     protected void initView() {
-        mDsHandler.post(update_thread);
+//        if(!mSmaManager.isConnected){
+//            mSmaManager.connect(true);
+//        }else{
+//            mDsHandlerSession3.post(update_thread_session3);
+//        }
     }
 
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        mSmaManager = SmaManager.getInstance().init(this).addSmaCallback(new SimpleSmaCallback() {
-
-            @Override
-            public void onConnected(BluetoothDevice device, boolean isConnected) {
-                if (BuildConfig.DEBUG) {
-                    append("  ->  isConnected " + isConnected);
-                }
-            }
-
-            @Override
-            public void onWrite(byte[] data) {
-                if (BuildConfig.DEBUG) {
-                    append("  ->  onWrite", data);
-                }
-            }
-
-            @Override
-            public void onRead(byte[] data) {
-                if (BuildConfig.DEBUG) {
-                    append("  ->  onRead", data);
-                }
-            }
-        });
-        mSmaManager.connect(true);
+        mSmaManager = SmaManager.getInstance();
+        mDsHandlerSession3.post(update_thread_session3);
     }
-
-    /**
-     * @param type 0写 1读
-     * @param data content
-     */
-    private synchronized void append(final String type, final byte[] data) {
-        runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-//                mTvDebug.append(getTimeStr() + "  " + type + "\n");
-//                mTvDebug.append(EaseUtils.byteArray2HexString(data));
-//                mTvDebug.append("  " + getValue(data));
-//                mTvDebug.append("\n\n");
-            }
-        });
-    }
-
-    private synchronized void append(final String value) {
-        runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-//                mTvDebug.append(getTimeStr() + "\n");
-//                mTvDebug.append("  " + value);
-//                mTvDebug.append("\n\n");
-            }
-        });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onDestroy() {
-        mSmaManager.exit();
-        mDsHandler.removeCallbacks(update_thread);
-        super.onDestroy();
-    }
-
 }

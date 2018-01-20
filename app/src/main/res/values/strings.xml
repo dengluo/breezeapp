@@ -95,6 +95,7 @@
     <string name="you_are_not_connected_to_breeze_app">"You're not connected to the Breeze App on your phone"</string>
     <string name="and" translatable="false"><![CDATA[&]]></string>
     <string name="selected_device">选择设备</string>
+    <string name="bind_device">绑定设备</string>
     <string name="search">搜寻</string>
     <string name="loading">正在加载…</string>
     <string name="please_enable_the_bluetooth">请打开蓝牙</string>

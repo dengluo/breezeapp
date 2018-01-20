@@ -36,7 +36,7 @@
                 n1:layout_height="wrap_content"
                 n1:layout_alignParentRight="true"
                 n1:layout_centerVertical="true"
-                n1:text="绑定设备"
+                n1:text=""
                 n1:padding="10.0dip" />
             </RelativeLayout>
 
